@@ -1,1 +1,1 @@
-# foglamp-north-influxcdb 2.0
+# foglamp-north-influxdbcloud
