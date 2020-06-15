@@ -25,7 +25,7 @@ _LOGGER = logger.setup(__name__)
 influxdb2_north = None
 config = ""
 
-_CONFIG_CATEGORY_DESCRIPTION = "InfluxDB2 North Plugin"
+_CONFIG_CATEGORY_DESCRIPTION = "InfluxDB Cloud North Plugin"
 
 _DEFAULT_CONFIG = {
     'plugin': {
@@ -96,7 +96,7 @@ _DEFAULT_CONFIG = {
 
 def plugin_info():
     return {
-        'name': 'influxdb2',
+        'name': 'influxdbcloud',
         'version': '1.8.0',
         'type': 'north',
         'interface': '1.0',
