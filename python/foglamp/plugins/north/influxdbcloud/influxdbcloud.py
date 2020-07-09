@@ -4,7 +4,7 @@
 # See: http://foglamp.readthedocs.io/
 # FOGLAMP_END
 
-""" InfluxDB2 North plugin"""
+""" InfluxDBCloud North plugin"""
 
 import asyncio
 import json
@@ -22,17 +22,14 @@ __version__ = "${VERSION}"
 _LOGGER = logger.setup(__name__)
 
 
-influxdb2_north = None
+influxdbcloud_north = None
 config = ""
-
-_CONFIG_CATEGORY_NAME = "InfluxDB2"
-_CONFIG_CATEGORY_DESCRIPTION = "InfluxDB2 North Plugin"
 
 _DEFAULT_CONFIG = {
     'plugin': {
          'description': 'InfluxDB Cloud North Plugin',
          'type': 'string',
-         'default': 'InfluxdbCloud',
+         'default': 'influxdbcloud',
          'readonly': 'true'
     },
     'url': {
@@ -97,8 +94,8 @@ _DEFAULT_CONFIG = {
 
 def plugin_info():
     return {
-        'name': 'influxdb2',
-        'version': '1.8.0',
+        'name': 'influxdbcloud',
+        'version': '1.8.1',
         'type': 'north',
         'interface': '1.0',
         'config': _DEFAULT_CONFIG
@@ -106,15 +103,15 @@ def plugin_info():
 
 
 def plugin_init(data):
-    global influxdb2_north, config
+    global influxdbcloud_north, config
     config = data
-    influxdb2_north = InfluxDB2Plugin(config["url"]["value"],config["token"]["value"])
+    influxdbcloud_north = InfluxDBcloudPlugin(config["url"]["value"],config["token"]["value"])
     return config
 
 
 async def plugin_send(data, payload, stream_id):
     try:
-        is_data_sent, new_last_object_id, num_sent = await influxdb2_north.send_payloads(payload)
+        is_data_sent, new_last_object_id, num_sent = await influxdbcloud_north.send_payloads(payload)
     except asyncio.CancelledError:
         pass
     else:
@@ -125,8 +122,8 @@ def plugin_shutdown(data):
     pass
 
 
-class InfluxDB2Plugin(object):
-    """ North InfluxDB2 Plugin """
+class InfluxDBcloudPlugin(object):
+    """ North InfluxDBcloud Plugin """
 
     def __init__(self, url, token):
         self.client = InfluxDBClient(url=url, token=token, org=config["org"]["value"])
