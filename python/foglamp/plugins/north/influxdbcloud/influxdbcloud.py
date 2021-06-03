@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # FOGLAMP_BEGIN
-# See: http://foglamp.readthedocs.io/
+# See: https://foglamp-foglamp-documentation.readthedocs-hosted.com
 # FOGLAMP_END
 
 """ InfluxDBCloud North plugin"""
@@ -96,7 +96,7 @@ _DEFAULT_CONFIG = {
 def plugin_info():
     return {
         'name': 'influxdbcloud',
-        'version': '1.9.0',
+        'version': '1.9.1',
         'type': 'north',
         'interface': '1.0',
         'config': _DEFAULT_CONFIG
