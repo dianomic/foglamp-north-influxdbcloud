@@ -96,7 +96,7 @@ _DEFAULT_CONFIG = {
 def plugin_info():
     return {
         'name': 'influxdbcloud',
-        'version': '1.9.2',
+        'version': '2.0.0',
         'type': 'north',
         'interface': '1.0',
         'config': _DEFAULT_CONFIG
