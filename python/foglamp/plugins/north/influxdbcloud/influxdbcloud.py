@@ -74,21 +74,6 @@ _DEFAULT_CONFIG = {
         "default": "foglamp",
         'order': '6',
         'displayName': 'Measurement'
-    },
-    "applyFilter": {
-        "description": "Should filter be applied before processing data",
-        "type": "boolean",
-        "default": "false",
-        'order': '8',
-        'displayName': 'Apply Filter'
-    },
-    "filterRule": {
-        "description": "JQ formatted filter to apply (only applicable if applyFilter is True)",
-        "type": "string",
-        "default": ".[]",
-        'order': '9',
-        'displayName': 'Filter Rule',
-        "validity": "applyFilter == \"true\""
     }
 }
 
@@ -96,7 +81,7 @@ _DEFAULT_CONFIG = {
 def plugin_info():
     return {
         'name': 'influxdbcloud',
-        'version': '2.0.1',
+        'version': '2.1.0',
         'type': 'north',
         'interface': '1.0',
         'config': _DEFAULT_CONFIG

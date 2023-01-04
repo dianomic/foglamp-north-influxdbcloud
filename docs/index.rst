@@ -39,10 +39,6 @@ The process of creating a North InfluxDB Cloud connection is similar to any othe
 
     - **Source**: The source of data to send, this may be either FogLAMP readings or the FogLAMP statistics
 
-    - - **Apply Filter**: This allows a simple jq format filter rule to be applied to the connection. This should not be confused with FogLAMP filters and exists for backward compatibility reasons only.
-
-    - **Filter Rule**: A jq filter rule to apply. Since the introduction of FogLAMP filters in the north task this has become deprecated and should not be used.
-
   - Click *Next*
 
   - Enable your north task and click on *Done*
